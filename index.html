@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Aniversário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Insira Seus Dados</h1>
+        <form id="birthday-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required>
+            <label for="birthday">Data de Aniversário:</label>
+            <input type="date" id="birthday" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("birthday-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            let name = encodeURIComponent(document.getElementById("name").value);
+            let birthday = encodeURIComponent(document.getElementById("birthday").value);
+            let data = { name, birthday };
+
+            try {
+                let response = await fetch("https://script.google.com/macros/s/AKfycbzcmkLfae_OWuleTb-WZxRqWDcARGe_HnGcn5n7X-T5N8aeznv0eGGOltp2JHfeNcFU/exec", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                    mode: "no-cors"  // <- Adicionando essa opção
+                });
+
+                alert("Dados enviados com sucesso!");
+            } catch (error) {
+                console.error("Erro ao salvar os dados:", error);
+                alert("Erro ao salvar os dados. Verifique a conexão.");
+            }
+        });
+    </script>
+</body>
+</html>
