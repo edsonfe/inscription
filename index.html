@@ -3,38 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Aniversário</title>
+    <title>Formulário de Inscrição</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="form-container">
-        <h1>Insira Seus Dados</h1>
-        <form id="birthday-form">
-            <label for="name">Nome:</label>
+        <h1>Retiro Área 31</h1>
+        <h2>Insira Seus Dados:</h2>
+        <form id="registration-form">
+            <label for="name">Nome Completo:</label>
             <input type="text" id="name" required>
-            <label for="birthday">Data de Aniversário:</label>
-            <input type="date" id="birthday" required>
+            
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" required>
+            
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" required>
+            
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" required>
+            
+            <label for="emergency-phone">Telefone de Emergência:</label>
+            <input type="tel" id="emergency-phone" required>
+
+            <label for="birthdate">Data de Nascimento:</label>
+            <input type="date" id="birthdate" required>
+
+            <label for="responsavel">Nome do Responsável:</label>
+            <input type="text" id="responsavel" style="display: none;">
+            
             <button type="submit">Enviar</button>
         </form>
     </div>
 
     <script>
-        document.getElementById("birthday-form").addEventListener("submit", async function (event) {
+        document.getElementById("birthdate").addEventListener("input", function () {
+            let birthDate = new Date(this.value);
+            let today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            
+            // Ajustar caso a pessoa ainda não tenha feito aniversário no ano atual
+            if (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())) {
+                age--;
+            }
+
+            let responsavelField = document.getElementById("responsavel");
+            
+            if (age < 18) {
+                responsavelField.required = true;
+                responsavelField.style.display = "block"; // Exibir o campo
+            } else {
+                responsavelField.required = false;
+                responsavelField.style.display = "none"; // Ocultar o campo
+                responsavelField.value = ""; // Limpar o campo caso seja ocultado
+            }
+        });
+
+        document.getElementById("registration-form").addEventListener("submit", async function (event) {
             event.preventDefault();
 
             let name = encodeURIComponent(document.getElementById("name").value);
-            let birthday = encodeURIComponent(document.getElementById("birthday").value);
-            let data = { name, birthday };
+            let phone = encodeURIComponent(document.getElementById("phone").value);
+            let address = encodeURIComponent(document.getElementById("address").value);
+            let cpf = encodeURIComponent(document.getElementById("cpf").value);
+            let emergencyPhone = encodeURIComponent(document.getElementById("emergency-phone").value);
+            let birthdate = encodeURIComponent(document.getElementById("birthdate").value);
+            let responsavel = encodeURIComponent(document.getElementById("responsavel").value);
+
+            let data = { name, phone, address, cpf, emergencyPhone,  birthdate, responsavel};
 
             try {
-                let response = await fetch("https://script.google.com/macros/s/AKfycbzcmkLfae_OWuleTb-WZxRqWDcARGe_HnGcn5n7X-T5N8aeznv0eGGOltp2JHfeNcFU/exec", {
+                let response = await fetch("https://script.google.com/macros/s/AKfycbwNvr43hj6foNk9KUZ2fCJKSDehGgeLDRRRLcLAcL2SJmyhZxRGl7bAg4OyXPKrk4Yb/exec", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
-                    mode: "no-cors"  // <- Adicionando essa opção
+                    mode: "no-cors"
                 });
 
                 alert("Dados enviados com sucesso!");
+                event.target.reset();
             } catch (error) {
                 console.error("Erro ao salvar os dados:", error);
                 alert("Erro ao salvar os dados. Verifique a conexão.");
