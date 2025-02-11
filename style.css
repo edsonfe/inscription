@@ -11,6 +11,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+
 .form-container {
     background: #d5f6fd;
     padding: 20px;
@@ -19,16 +20,19 @@ body {
     max-width: 400px;
     width: 100%;
 }
+
 .form-container h1 {
     margin-bottom: 20px;
     font-size: 1.5rem;
     text-align: center;
 }
+
 .form-container label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
 }
+
 .form-container input {
     width: 100%;
     padding: 8px;
@@ -36,6 +40,7 @@ body {
     border: 1px solid #1a28f0;
     border-radius: 4px;
 }
+
 .form-container button {
     width: 100%;
     padding: 10px;
@@ -46,6 +51,47 @@ body {
     font-size: 1rem;
     cursor: pointer;
 }
+
 .form-container button:hover {
     background: #0056b3;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Estilo do QR Code */
+#qr-code {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 120px;
+    /* Ajuste o tamanho do QR Code conforme necessário */
+    height: 120px;
 }
