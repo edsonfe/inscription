@@ -9,7 +9,7 @@
 <body>
     <div class="form-container">
         <h1>Retiro Área 31</h1>
-        <h2>Insira Seus Dados:</h2>
+        <h2>Por favor informe seus dados</h2>
         <form id="registration-form">
             <label for="name">Nome Completo:</label>
             <input type="text" id="name" required>
@@ -39,18 +39,20 @@
     <div id="modalPagamento" class="modal">
         <div class="modal-content">
             <span class="close" onclick="fecharModal()">&times;</span>
-            <h2 style="color:forestgreen; " class="texto-sombra">Informações de Pagamento</h2>
+            <h2>Informações Sobre Pagamento</h2>
             <p style="color: crimson; " class="p">Para efetivar sua inscrição e garantir a sua vaga, pague via QR-code e envie o comprovante para um dos contatos abaixo, para outros meios de pagamento utilize os mesmos contatos para mais informações:</p>
             
-            <h3 style="color: darkblue; text-align: left;" class="texto-sombra">Contatos</h3>
-            <ul>
-                <li style="text-align: left;"><a href="https://wa.me/559891386692" target="_blank">Mateus</a></li>
-                <li style="text-align: left;"><a href="https://wa.me/5598985182439" target="_blank">Leila</a></li>
+            <h3 class="texto-sombra">Contatos:</h3>
+            <ul style="text-align: left;">
+                <li href="https://wa.me/559891386692" target="_blank">Mateus></li>
+                <li href="https://wa.me/5598985182439" target="_blank">Leila></li>
             </ul>
 
             <img id="qr-code" src="imagens/code-qr.jpg" alt="QR pagamento">
         </div>
     </div>
+
+    
 
     <script>
         document.getElementById("birthdate").addEventListener("input", function () {
