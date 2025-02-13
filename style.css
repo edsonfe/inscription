@@ -13,7 +13,7 @@ body {
 }
 
 .form-container {
-    background: #d5f6fd;
+    background-color: rgba(196, 247, 251, 0.700);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
@@ -22,21 +22,22 @@ body {
 }
 
 .form-container h1 {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 2rem;
     text-align: center;
     font-style: italic;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #197faa;
+    color: #193daa;
     text-shadow: 0 4px 6px rgba(0, 0, 0, 0.300);
 }
 
 .form-container h2 {
-    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
     text-align: left;
     font-style: italic;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #0bc9cc;
+    color: #0b74eb;
     text-shadow: 0 4px 6px rgba(0, 0, 0, 0.300);
 }
 
