@@ -5,7 +5,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-<<<<<<< HEAD
     /*min-height: 100%;*/
     margin: 0;
     background-image: url("imagens/img6.jpg");
@@ -14,35 +13,16 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-=======
-    min-height: 100%;
-    margin: 0;
-    background-image: url("imagens/img6.jpg");
-    background-color: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: contain;
->>>>>>> 48031f4 (Atualização nova versão)
 }
 
 .form-container {
     background-color: rgba(139, 241, 248, 0.85);
-<<<<<<< HEAD
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
     max-width: 400px;
     width: 90%;
     margin-top: 100px;
-=======
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
-    max-width: 400px;
-    width: 100%;
-    margin: 20px;
->>>>>>> 48031f4 (Atualização nova versão)
 }
 
 .form-container h1 {
@@ -51,11 +31,7 @@ body {
     text-align: center;
     font-style: italic;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-<<<<<<< HEAD
     color: #0b74eb;
-=======
-    color: #0a4cf1de;
->>>>>>> 48031f4 (Atualização nova versão)
     text-shadow: 0 4px 6px rgba(0, 0, 0, 0.400);
 }
 
@@ -155,7 +131,6 @@ body {
 
 /*Media Queries para Responsividade*/
 @media (max-width: 600px) {
-<<<<<<< HEAD
     header nav ul {
         justify-content: center; /* Centraliza os links em telas menores */
     }
@@ -163,11 +138,6 @@ body {
         max-width: 100%;
         padding: 20px;
         margin-top: 80px;
-=======
-    .form-container{
-        max-width: 100%;
-        padding: 20px;
->>>>>>> 48031f4 (Atualização nova versão)
     }
     .modal-content{
         width: 100%;
@@ -183,19 +153,12 @@ body {
 header {
     width: 100%;
     padding: 5px;
-<<<<<<< HEAD
     background: linear-gradient(to bottom, #061cdf, #00e1ff);
-=======
-    background-color: rgb(18, 31, 217);
->>>>>>> 48031f4 (Atualização nova versão)
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
     flex-wrap: wrap;
-=======
->>>>>>> 48031f4 (Atualização nova versão)
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -210,14 +173,10 @@ header .logo img {
 header nav ul {
     list-style: none;
     display: flex;
-<<<<<<< HEAD
     gap: 10px;
     margin: 1;
     flex: 1 1 auto;
     justify-content: flex-end;
-=======
-    gap: 25px;
->>>>>>> 48031f4 (Atualização nova versão)
 }
 
 header nav ul li a {
@@ -225,10 +184,7 @@ header nav ul li a {
     text-decoration: none;
     font-weight: bold;
     padding-right: 25px;
-<<<<<<< HEAD
     white-space: nowrap;
-=======
->>>>>>> 48031f4 (Atualização nova versão)
 }
 
 header nav ul li a:hover {
@@ -238,25 +194,17 @@ header nav ul li a:hover {
 /* Estilos do rodapé */
 footer {
     width: 100%;
-<<<<<<< HEAD
     padding: 0px;
     background: linear-gradient(to top, #0033ff, #00b7ff13) ;
-=======
-    padding: 1px;
-    background-color: rgba(48, 59, 216, 0.9);
->>>>>>> 48031f4 (Atualização nova versão)
     color: white;
     text-align: center;
     position: fixed;
     bottom: 0;
     left: 0;
 }
-<<<<<<< HEAD
 footer a{
     color: rgb(0, 255, 234);
 }
-=======
->>>>>>> 48031f4 (Atualização nova versão)
 
 /* Estilos do botão */
 .form-container button {
