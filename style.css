@@ -13,6 +13,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 .form-container {
@@ -23,6 +24,7 @@ body {
     max-width: 400px;
     width: 90%;
     margin-top: 100px;
+    box-sizing: border-box;
 }
 
 .form-container h1 {
@@ -58,6 +60,7 @@ body {
     border: 1px solid #1a85f0;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(3, 110, 99, 0.249);
+    box-sizing: border-box;
 }
 
 .form-container button {
@@ -69,6 +72,7 @@ body {
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .form-container button:hover {
@@ -88,6 +92,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal-content {
@@ -95,7 +100,7 @@ body {
     background-color: white;
     margin: 20% auto;
     padding: 30px;
-    width: 1000%;
+    width: 100%;
     max-width: 600px;
     text-align: center;
     border-radius: 10px;
@@ -166,6 +171,7 @@ header {
     top: 0;
     left:0;
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 header .logo img {
@@ -187,6 +193,7 @@ header nav ul li a {
     font-weight: bold;
     padding-right: 30px;
     white-space: nowrap;
+    box-sizing: border-box;
 }
 
 header nav ul li a:hover {
