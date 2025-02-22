@@ -22,7 +22,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
     max-width: 400px;
-    width: 90%;
+    width: 100%;
     margin-top: 100px;
     box-sizing: border-box;
 }
@@ -163,7 +163,7 @@ header {
     background: linear-gradient(to bottom, #061cdf, #00e1ff);
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -175,7 +175,7 @@ header {
 }
 
 header .logo img {
-    height: 50px;
+    height: 40px;
 }
 
 header nav ul {
