@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0">
     <title>Formulário de Inscrição</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Adicionar link no head do HTML -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Adicionar link no head do HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+
 </head>
+
 <body>
-    <div class="form-container">
-        <h1>Retiro Área 31</h1>
-        <h2>Por favor informe seus dados</h2>
+    <a id="topo"></a>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="imagens/img2.png" alt="Logotipo Retiro Área 31">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#topo" id="link-home">Home</a></li>
+                <li><a href="#pagamento" id="link-pagamento">Pagamento</a></li>
+                <li><a href="#inscricao" id="link-inscricao">Inscrição</a></li>
+                <li><a href="#contato" id="link-contato"><i class="fas fa-phone"></i> Contato</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!--Conteúdo Principal-->
+    <div id="inscricao-container" class="form-container" style="display: none;">
+        <h1>Inscrição</h1>
         <form id="registration-form">
             <label for="name">Nome Completo:</label>
             <input type="text" id="name" required>
-            
+
             <label for="phone">Telefone:</label>
             <input type="tel" id="phone" required>
-            
+
             <label for="address">Endereço:</label>
             <input type="text" id="address" required>
-            
+
             <label for="cpf">CPF:</label>
             <input type="text" id="cpf" required>
-            
+
             <label for="emergency-phone">Telefone de Emergência:</label>
             <input type="tel" id="emergency-phone" required>
 
@@ -31,95 +58,37 @@
 
             <label for="responsavel">Nome do Responsável:</label>
             <input type="text" id="responsavel" style="display: none;">
-            
+
             <button type="submit">Enviar</button>
         </form>
     </div>
 
-    <div id="modalPagamento" class="modal">
+    <div id="modalPagamento" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close" onclick="fecharModal()">&times;</span>
             <h2>Informações Sobre Pagamento</h2>
-            <p style="color: crimson; " class="p">Para efetivar sua inscrição e garantir a sua vaga, pague via QR-code e envie o comprovante para um dos contatos abaixo, para outros meios de pagamento utilize os mesmos contatos para mais informações:</p>
-            
-            <h3 class="texto-sombra">Contatos:</h3>
-            <ul style="text-align: left;">
-                <li><a href="https://wa.me/559891386692" target="_blank" rel="noopener noreferrer">Mateus</a></li>
-                <li><a href="https://wa.me/5598985182439" target="_blank" rel="noopener noreferrer">Leila</a></li>
-            </ul>
+            <p style="color: crimson;" class="p">Para efetivar sua inscrição e garantir a sua vaga, pague por um dos
+                meios disponíveis. Em seguida vá em CONTATO e envie o comprovante.</p>
 
-            <img id="qr-code" src="imagens/code-qr.jpg" alt="QR pagamento">
+            <a href="" target="_blank"><img id="qr-code" src="imagens/code-qr.jpg" alt="QR pagamento"></a>
         </div>
     </div>
 
-    
+    <div id="contato-container" class="form-container" style="display: none;">
+        <h2>Contatos:</h2>
+        <ul style="text-align: left;">
+            <li><a href="https://wa.me/559891386692" target="_blank" rel="noopener noreferrer">Mateus</a></li>
+            <li><a href="https://wa.me/5598985182439" target="_blank" rel="noopener noreferrer">Leila</a></li>
+        </ul>
+    </div>
 
-    <script>
-        document.getElementById("birthdate").addEventListener("input", function () {
-            let birthDate = new Date(this.value);
-            let today = new Date();
-            let age = today.getFullYear() - birthDate.getFullYear();
-            
-            // Ajustar caso a pessoa ainda não tenha feito aniversário no ano atual
-            if (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())) {
-                age--;
-            }
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Retiro Área 31. Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:edsonfe.ofc@gmail.com">edsonfe.ofc@gmail.com</a></p>
+    </footer>
 
-            let responsavelField = document.getElementById("responsavel");
-            
-            if (age < 18) {
-                responsavelField.required = true;
-                responsavelField.style.display = "block"; // Exibir o campo
-            } else {
-                responsavelField.required = false;
-                responsavelField.style.display = "none"; // Ocultar o campo
-                responsavelField.value = ""; // Limpar o campo caso seja ocultado
-            }
-        });
-
-        function abrirModal() {
-        document.getElementById("modalPagamento").style.display = "block";
-        }
-
-        function fecharModal() {
-            document.getElementById("modalPagamento").style.display = "none";
-        }
-
-        document.getElementById("registration-form").addEventListener("submit", async function (event) {
-            event.preventDefault();
-
-            let name = encodeURIComponent(document.getElementById("name").value);
-            let phone = encodeURIComponent(document.getElementById("phone").value);
-            let address = encodeURIComponent(document.getElementById("address").value);
-            let cpf = encodeURIComponent(document.getElementById("cpf").value);
-            let emergencyPhone = encodeURIComponent(document.getElementById("emergency-phone").value);
-            let birthdate = encodeURIComponent(document.getElementById("birthdate").value);
-            let responsavel = encodeURIComponent(document.getElementById("responsavel").value);
-
-            let data = { name, phone, address, cpf, emergencyPhone,  birthdate, responsavel};
-
-            try {
-                let response = await fetch("https://script.google.com/macros/s/AKfycbwNvr43hj6foNk9KUZ2fCJKSDehGgeLDRRRLcLAcL2SJmyhZxRGl7bAg4OyXPKrk4Yb/exec", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data),
-                    mode: "no-cors"
-                });
-
-                alert("Dados enviados com sucesso!");
-                event.target.reset();
-
-                abrirModal();
-
-                document.getElementById("modalPagamento").style.display = "block";
-
-
-            } catch (error) {
-                console.error("Erro ao salvar os dados:", error);
-                alert("Erro ao salvar os dados. Verifique a conexão.");
-            }
-        });
-
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
