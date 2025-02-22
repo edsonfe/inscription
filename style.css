@@ -121,18 +121,16 @@ body {
 
 /* Estilo do QR Code */
 #qr-code {
-    position: relative;
-    bottom: 0px;
-    right: 0px;
     width: 150px;
-    /* Ajuste o tamanho do QR Code conforme necessário */
     height: 150px;
+    display: block;
+    margin: 0 auto;
 }
 
 /*Media Queries para Responsividade*/
 @media (max-width: 600px) {
     header nav ul {
-        justify-content: center; /* Centraliza os links em telas menores */
+        justify-content: space-around; /* Centraliza os links em telas menores */
     }
     .form-container{
         max-width: 100%;
