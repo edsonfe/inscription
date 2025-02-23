@@ -127,13 +127,6 @@ body {
     cursor: pointer;
 }
 
-#qr-code{
-    width: 150px;
-    height: 150px;
-    display: block;
-    margin: 0 auto;
-}
-
 /*Media Queries para Responsividade*/
 @media (max-width: 600px) {
     header nav ul {
@@ -147,12 +140,6 @@ body {
     .modal-content{
         width: 100%;
         padding: 20px;
-    }
-    #qr-code{
-        width: 200px;
-        height: 200px;
-        display: block;
-        margin: 0 auto;
     }
 }
 

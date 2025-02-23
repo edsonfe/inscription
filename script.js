@@ -68,15 +68,6 @@ document.getElementById("link-inscricao").addEventListener("click", function(eve
     window.location.hash = "#inscricao-container";
 })
 
-//Exibir área de pagamento
-document.getElementById("link-pagamento").addEventListener("click", function(event){
-    event.preventDefault();
-    document.getElementById("contato-container").style.display = "none";
-    document.getElementById("inscricao-container").style.display = "none";
-    document.getElementById("modalPagamento").style.display = "block";
-    window.location.hash = "#modalPagamento";
-})
-
 document.getElementById("link-contato").addEventListener("click", function (event) {
     document.getElementById("inscricao-container").style.display = "none";
     document.getElementById("modalPagamento").style.display = "none";
