@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Formulário de Inscrição</title>
+
     <link rel="stylesheet" href="style.css">
-    <!-- Adicionar link no head do HTML -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Adicionar link no head do HTML -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-
 
 </head>
 
@@ -28,12 +26,12 @@
                 <li><a href="#topo" id="link-home">Home</a></li>
                 <li><a href="#inscricao" id="link-inscricao">Inscrição</a></li>
                 <li><a href="#contato" id="link-contato"><i class="fas fa-phone"></i> Contato</a></li>
+                <li><a href="#adm-container" id="link-adm"><i class="fas fa-user-shield"></i> Admin</a></li>
 
             </ul>
         </nav>
     </header>
 
-    <!--Conteúdo Principal-->
     <div id="inscricao-container" class="form-container" style="display: none;">
         <h1>Inscrição</h1>
         <form id="registration-form">
@@ -66,27 +64,67 @@
         <div class="modal-content">
             <span class="close" onclick="fecharModal()">&times;</span>
             <h2>Quase lá!</h2>
-            <p style="color: crimson;" class="p">Para efetivar sua inscrição e garantir a sua vaga, fale com um dos nossos contatos abaixo:</p>
+            <p style="color: crimson;">Para efetivar sua inscrição e garantir a sua vaga, fale com um dos nossos contatos abaixo:</p>
             <h2>Contatos:</h2>
-                <ul style="text-align: left;">
-                    <li><a href="https://wa.me/559891386692" target="_blank" rel="noopener noreferrer">Mateus</a></li>
-                    <li><a href="https://wa.me/5598985182439" target="_blank" rel="noopener noreferrer">Leila</a></li>
-                </ul>
+            <ul class="contatos-lista"></ul>
         </div>
     </div>
 
     <div id="contato-container" class="form-container" style="display: none;">
         <h2>Contatos:</h2>
-        <ul style="text-align: left;">
-            <li><a href="https://wa.me/559891386692" target="_blank" rel="noopener noreferrer">Mateus</a></li>
-            <li><a href="https://wa.me/5598985182439" target="_blank" rel="noopener noreferrer">Leila</a></li>
-        </ul>
+        <ul class="contatos-lista"></ul>
     </div>
 
+    <div id="adm-container" class="form-container" style="display: none;">
+        <!-- Área de Login -->
+        <div id="login-section">
+            <h1>Login</h1>
+            <form id="login-form">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p id="login-error" style="color: red; display: none;">Usuário ou senha inválidos!</p>
+        </div>
+
+        <!-- Área Administrativa -->
+        <div id="admin-section" style="display: none;">
+            <h1>Área Administrativa</h1>        
+            <!-- Lista de inscritos -->
+            <div id="lista-nomes">
+                <h3>Inscritos</h3>
+                <ul id="nomes-ul">
+
+                </ul>
+            </div>
+
+             <!-- Container separado para os detalhes -->
+            <div id="detalhes-inscrito" style="display: none;">
+                <h3>Dados da Inscrição</h3>
+                <p><strong>Nome:</strong> <span id="detalhe-nome"></span></p>
+                <p><strong>Telefone:</strong> <span id="detalhe-telefone"></span></p>
+                <p><strong>Endereço:</strong> <span id="detalhe-endereco"></span></p>
+                <p><strong>Tel. Emergência:</strong> <span id="detalhe-emergency-phone"></span></p>
+
+                <!-- Campos adicionais editáveis -->
+                <p><strong>Pagamento:</strong> <input type="text" id="input-pagamento"></p>
+                <p><strong>Alimento:</strong> <input type="text" id="input-alimento"></p>
+                <p><strong>Observação:</strong> <input type="text" id="input-observacao"></p>
+
+                <!-- Botões -->
+                <button id="salvar-detalhes">Salvar</button>
+                <button id="voltar-lista">Voltar</button>
+            </div>
+            <button id="logout">Fechar ADM</button>
+        </div>          
+    </div>
+</div> 
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Retiro Área 31. Todos os direitos reservados.</p>
-        <p>Contato: <a href="mailto:edsonfe.ofc@gmail.com">edsonfe.ofc@gmail.com</a></p>
+        <p>Contato: <a href="mailto:edsonfe.ofc01@gmail.com">edsonfe.ofc01@gmail.com</a></p>
     </footer>
 
     <script src="script.js"></script>

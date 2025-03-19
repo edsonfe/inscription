@@ -1,14 +1,14 @@
+
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; /* Layout em coluna */
+    justify-content: flex-start; /* Mantém o topo fixo */
     align-items: center;
-    height: 100vh;
-    /*min-height: 100%;*/
+    min-height: 100vh; /* Garante que o corpo ocupe a altura da tela */
     margin: 0;
     background-image: url("imagens/img6.jpg");
-    background-color:  rgba(15, 68, 239, 0.85);
+    background-color: rgba(15, 68, 239, 0.85);
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -16,7 +16,24 @@ body {
     overflow-x: hidden;
 }
 
+/* Configuração do conteúdo principal */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Container de formulários */
 .form-container {
+    animation: fadeIn 0.5s ease-in;
     background-color: rgba(139, 241, 248, 0.85);
     padding: 10px;
     border-radius: 10px;
@@ -27,7 +44,9 @@ body {
     box-sizing: border-box;
 }
 
-.form-container h1 {
+/* Títulos */
+.form-container h1,
+.form-container h2 {
     margin-bottom: 10px;
     font-size: 2rem;
     text-align: center;
@@ -37,16 +56,7 @@ body {
     text-shadow: 0 4px 6px rgba(0, 0, 0, 0.400);
 }
 
-.form-container h2 {
-    margin-bottom: 30px;
-    font-size: 2rem;
-    text-align: center;
-    font-style: italic;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #0b74eb;
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.300);
-}
-
+/* Rótulos e entradas do formulário */
 .form-container label {
     display: block;
     margin-bottom: 8px;
@@ -63,6 +73,7 @@ body {
     box-sizing: border-box;
 }
 
+/* Botões */
 .form-container button {
     width: 100%;
     padding: 10px;
@@ -79,71 +90,78 @@ body {
     background: #0056b3;
 }
 
-
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
+    animation: fadeIn 0.3s ease-in;
+    display: none; 
+    position: fixed; /* Garante que o modal fique sobreposto */
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000; /* Alto índice para sobreposição */
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
+    display: flex; /* Centraliza */
 }
 
 .modal-content {
-    position: relative;
     background-color: white;
-    margin: 20% auto;
-    padding: 30px;
-    width: 100%;
-    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
     text-align: center;
-    border-radius: 10px;
-    box-sizing: border-box;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.modal-content h2 {
-    font-size: 25px;
-    font-style: italic;
-    font-family: 'Roboto', sans-serif;
+.modal {
+    pointer-events: all; /* Modal interativo */
 }
 
-.modal-content p {
-    font-size: 20px;
-    font-style: italic;
-    font-family: 'Roboto', sans-serif;
+body.modal-open {
+    overflow: hidden; /* Impede rolagem */
+    pointer-events: none; /* Bloqueia cliques no restante da página */
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 25px;
-    cursor: pointer;
+body.modal-open .modal {
+    pointer-events: all; /* Permite interação apenas no modal */
 }
 
-/*Media Queries para Responsividade*/
-@media (max-width: 600px) {
-    header nav ul {
-        justify-content: space-around; /* Centraliza os links em telas menores */
-    }
-    .form-container{
-        max-width: 100%;
-        padding: 20px;
-        margin-top: 80px;
-    }
-    .modal-content{
-        width: 100%;
-        padding: 20px;
-    }
+
+input:invalid {
+    border: 1px solid #ffb84d;
 }
 
-/* Estilos do cabeçalho */
+#login-container, #admin-container {
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Estilo do rodapé */
+footer {
+    background: linear-gradient(to bottom, #0033ffe7, #00b7ff10);
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative; /* Independente do restante */
+    margin-top: auto; /* Garante que o rodapé seja empurrado para baixo */
+    z-index: 10;
+    font-size: 14px;
+}
+
+footer a {
+    color: rgb(0, 255, 234);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo do cabeçalho */
 header {
     width: 100%;
     padding: 5px;
@@ -156,7 +174,7 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     z-index: 1000;
     box-sizing: border-box;
 }
@@ -169,9 +187,9 @@ header nav ul {
     list-style: none;
     display: flex;
     gap: 5px;
-    margin: 0px;
-    flex: 1 1 auto;
+    margin: 0;
     justify-content: flex-end;
+    flex: 1;
 }
 
 header nav ul li a {
@@ -179,46 +197,95 @@ header nav ul li a {
     text-decoration: none;
     font-weight: bold;
     padding-right: 30px;
-    white-space: nowrap;
-    box-sizing: border-box;
 }
 
 header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Estilos do rodapé */
-footer {
-    width: 100%;
-    padding: 0px;
-    background: linear-gradient(to top, #0033ff, #00b7ff13) ;
-    color: white;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-footer a{
-    color: rgb(0, 255, 234);
+/* Lista de inscritos */
+#nomes-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Estilos do botão */
-.form-container button {
-    width: 100%;
+#nomes-ul li {
     padding: 10px;
-    background: #007bff68;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
-.form-container button:hover {
-    background: #0056b3;
+#nomes-ul li:hover {
+    background-color: #e3f2fd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.form-container button:active {
-    background: #004299;
+/* Área de detalhes */
+#detalhes-inscrito {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    display: none;
+}
+
+#detalhes-inscrito h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#detalhes-inscrito span {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+#voltar-lista {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#voltar-lista:hover {
+    background-color: #0056b3;
+}
+
+.contatos-lista {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+
+.contatos-lista li a {
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contatos-lista li a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
