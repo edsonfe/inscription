@@ -295,11 +295,13 @@ document.getElementById("login-form").addEventListener("submit", async function 
     }
 });
 
-
+//Logout
 document.getElementById("logout").addEventListener("click", function () {
     sessionStorage.removeItem("authenticated"); // Remove autenticação
     toggleDisplay("login-section", "block");
     toggleDisplay("admin-section", "none");
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
     alert("Você foi desconectado.");
 });
 

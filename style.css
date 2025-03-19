@@ -164,11 +164,11 @@ footer a:hover {
 /* Estilo do cabeçalho */
 header {
     width: 100%;
-    padding: 5px;
+    padding: 0 20px;
     background: linear-gradient(to bottom, #061cdf, #00e1ff);
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -180,7 +180,7 @@ header {
 }
 
 header .logo img {
-    height: 40px;
+    height: 35px;
 }
 
 header nav ul {
@@ -288,4 +288,23 @@ header nav ul li a:hover {
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+    header {
+        flex-direction: row; /* Mantém elementos lado a lado */
+        justify-content: flex-start; /* Logo à esquerda */
+    }
+
+    .logo {
+        text-align: left; /* Reforça alinhamento à esquerda */
+        margin-right: auto; /* Empurra os links para longe do logo */
+    }
+
+    nav {
+        display: flex; /* Links lado a lado */
+        justify-content: flex-end;
+        flex-wrap: nowrap; /* Evita quebra */
+    }
 }
