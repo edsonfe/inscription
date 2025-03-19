@@ -291,7 +291,6 @@ document.getElementById("login-form").addEventListener("submit", async function 
         console.log(await response.json()); // Exibe a resposta no console
     } catch (error) {
         console.error("Erro:", error);
-        alert("Ocorreu um problema ao validar suas credenciais. Tente novamente.");
     }
 });
 
