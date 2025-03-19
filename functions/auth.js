@@ -1,4 +1,4 @@
-exports.handler = async (event) => {
+export async function handler(event) {
   if (event.httpMethod === "POST") {
       const { username, password } = JSON.parse(event.body);
 
@@ -23,4 +23,4 @@ exports.handler = async (event) => {
       statusCode: 405,
       body: JSON.stringify({ error: "Método não suportado" }),
   };
-};
+}

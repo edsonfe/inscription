@@ -1,0 +1,3 @@
+[build]
+  functions = "functions" # Especifica a pasta onde as funções serverless estão
+  publish = "./"          # Especifica o diretório onde está o site

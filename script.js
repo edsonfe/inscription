@@ -1,9 +1,12 @@
 
-
 function toggleDisplay(elementId, displayStyle) {
-    document.getElementById(elementId).style.display = displayStyle;
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.style.display = displayStyle;
+    } else {
+        console.error(`Elemento com ID ${elementId} não encontrado.`);
+    }
 }
-
 // Lista de contatos
 const contatos = [
     { nome: "Mateus", link: "https://wa.me/559891386692" },
@@ -96,7 +99,7 @@ document.getElementById("registration-form").addEventListener("submit", async fu
     let cpf = document.getElementById("cpf").value;
 
     if (cpf.length !== 11){
-        alert("SEU CPF DEVE CONTER 11 DÍGITOS.");
+        alert("SEU CPF DEVE CONTER APENAS 11 DÍGITOS SEM PONTOS OU TRAÇOS.");
         event.preventDefault();
         return;
     }
@@ -227,6 +230,7 @@ document.getElementById("voltar-lista").addEventListener("click", function () {
 // Verificar se está autenticado e exibir a área correta
 function autenticarAcesso() {
     const isAuthenticated = sessionStorage.getItem("authenticated") === "true";
+    console.log(`Autenticação: ${isAuthenticated}`);
 
     if (isAuthenticated) {
         // Exibir área admin e esconder login
@@ -256,6 +260,8 @@ document.getElementById("login-form").addEventListener("submit", async function 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
+    toggleDisplay("login-error", "none");
+
     try {
         // Envia a requisição ao Netlify Function
         const response = await fetch("/.netlify/functions/auth", {
@@ -266,19 +272,20 @@ document.getElementById("login-form").addEventListener("submit", async function 
 
         if (response.ok) {
             const data = await response.json();
-
             if (data.success) {
                 // Autenticação bem-sucedida
-                sessionStorage.setItem("authenticated", "true"); // Armazena o estado de login
-                document.getElementById("login-container").style.display = "none"; // Oculta login
-                document.getElementById("admin-section").style.display = "block"; // Mostra admin
+                sessionStorage.setItem("authenticated", "true"); 
+                alert("Login realizado com sucesso!");
+                toggleDisplay("login-section", "none");
+                toggleDisplay("admin-section", "block");
             } else {
                 // Falha na autenticação
-                document.getElementById("login-error").style.display = "block";
+                toggleDisplay("login-error", "block");
             }
         } else {
             throw new Error("Erro na comunicação com o servidor.");
         }
+        console.log(await response.json()); // Exibe a resposta no console
     } catch (error) {
         console.error("Erro:", error);
         alert("Ocorreu um problema ao validar suas credenciais. Tente novamente.");
@@ -288,8 +295,9 @@ document.getElementById("login-form").addEventListener("submit", async function 
 
 document.getElementById("logout").addEventListener("click", function () {
     sessionStorage.removeItem("authenticated"); // Remove autenticação
-    toggleDisplay("login-container", "block");
+    toggleDisplay("login-section", "block");
     toggleDisplay("admin-section", "none");
+    alert("Você foi desconectado.");
 });
 
 document.getElementById("link-adm").addEventListener("click", function (event) {
