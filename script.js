@@ -57,6 +57,7 @@ document.getElementById("birthdate").addEventListener("input", function () {
 });
 
 function abrirModal() {
+    preencherContatos();
     document.body.classList.add("modal-open");
     toggleDisplay("modalPagamento","flex");
 }
