@@ -278,6 +278,9 @@ document.getElementById("login-form").addEventListener("submit", async function 
                 alert("Login realizado com sucesso!");
                 toggleDisplay("login-section", "none");
                 toggleDisplay("admin-section", "block");
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
+
             } else {
                 // Falha na autenticação
                 toggleDisplay("login-error", "block");
