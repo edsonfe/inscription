@@ -34,7 +34,7 @@ main {
 /* Container de formulários */
 .form-container {
     animation: fadeIn 0.5s ease-in;
-    background-color: rgba(139, 241, 248, 0.85);
+    background-color: rgba(139, 241, 248, 0.932);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.555);
@@ -141,10 +141,10 @@ input:invalid {
 
 /* Estilo do rodapé */
 footer {
-    background: linear-gradient(to bottom, #0033ffe7, #00b7ff10);
+    background-color: rgb(0, 153, 255);/*linear-gradient(to bottom, #0033ffe7, #00b7ff10);*/
     color: white;
     text-align: center;
-    padding: 15px 20px;
+    padding: 5px 10px;
     width: 100%;
     position: relative; /* Independente do restante */
     margin-top: auto; /* Garante que o rodapé seja empurrado para baixo */
@@ -164,7 +164,7 @@ footer a:hover {
 /* Estilo do cabeçalho */
 header {
     width: 100%;
-    padding: 0 20px;
+    padding: 0px 10px;
     background: linear-gradient(to bottom, #061cdf, #00e1ff);
     color: white;
     display: flex;
@@ -180,7 +180,8 @@ header {
 }
 
 header .logo img {
-    height: 35px;
+    height: 40px;
+
 }
 
 header nav ul {
@@ -201,6 +202,12 @@ header nav ul li a {
 
 header nav ul li a:hover {
     text-decoration: underline;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 /* Lista de inscritos */
